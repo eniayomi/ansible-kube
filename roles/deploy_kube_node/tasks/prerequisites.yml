@@ -1,0 +1,8 @@
+---
+
+- include_vars: env_variables
+
+- name: Copying required files
+  shell: |
+    swapoff -a
+  become: yes  

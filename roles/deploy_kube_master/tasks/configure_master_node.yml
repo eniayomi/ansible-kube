@@ -1,0 +1,23 @@
+---
+
+- include_vars: env_variables
+
+- name: Initializing Kubernetes cluster
+  shell: |
+    kubeadm reset -f
+    kubeadm init --pod-network-cidr=10.244.0.0/16  --ignore-preflight-errors=NumCPU
+  register: output
+  become: yes
+
+- name: Storing Logs and Generated token for future purpose.
+  local_action: copy content={{ output.stdout }} dest=./join_token
+
+- name: Copying required files
+  shell: |
+    mkdir -p $HOME/.kube
+    sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
+    sudo chown $(id -u):$(id -g) $HOME/.kube/config
+  become: yes
+- name: Install Network Add-on
+  command: kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+  become: yes

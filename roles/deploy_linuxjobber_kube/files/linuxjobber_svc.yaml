@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: lj-port
+  labels:
+    name: lj-port
+  namespace: linuxjobber  
+spec:
+  type: NodePort
+  ports:
+  - port: 4000
+    nodePort: 30000
+    name: lj-home
+    targetPort: 4000
+  - port: 7000
+    nodePort: 31000
+    targetPort: 7000
+    name: lj-class
+  selector:
+    app: linuxjobber       

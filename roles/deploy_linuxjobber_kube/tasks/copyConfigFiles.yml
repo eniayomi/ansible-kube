@@ -1,0 +1,14 @@
+---
+
+- name: copy config file for deploying linuxjobber
+  copy: src={{ item.src }} dest={{ item.dest }}
+  with_items:
+    - { src: 'grader_svc.yaml', dest: '/linuxjobber/grader_svc.yaml', force: 'yes' }
+    - { src: 'mysql_svc.yaml', dest: '/linuxjobber/mysql_svc.yaml', force: 'yes' }
+    - { src: 'redis_svc.yaml', dest: '/linuxjobber/redis_svc.yaml', force: 'yes' }
+    - { src: 'linuxjobber_svc.yaml', dest: '/linuxjobber/linuxjobber_svc.yaml', force: 'yes' }
+    - { src: 'linuxjobber.yaml', dest: '/linuxjobber/linuxjobber.yaml', force: 'yes' }
+    - { src: 'chatscrum.yaml', dest: '/linuxjobber/chatscrum.yaml', force: 'yes' }
+    - { src: 'chatscrum_svc.yaml', dest: '/linuxjobber/chatscrum_svc.yaml', force: 'yes' }
+    - { src: 'cs_mysql.yaml', dest: '/linuxjobber/cs_mysql.yaml', force: 'yes' }
+

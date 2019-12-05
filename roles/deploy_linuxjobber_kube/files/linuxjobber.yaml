@@ -1,0 +1,43 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: linuxjobber
+  labels:
+    app: linuxjobber
+  namespace: linuxjobber  
+spec:
+  containers:
+  - name: ljdb
+    image: docker.io/mysql:8
+    env:
+    - name: MYSQL_ROOT_USER
+      value: root  
+    - name: MYSQL_ROOT_PASSWORD
+      value: 8iu7*IU&
+    - name: MYSQL_USER
+      value: linuxjobber
+    - name: MYSQL_PASSWORD
+      value: 8iu7*IU&    
+    - name: MYSQL_DATABASE
+      value: linuxjobber
+    - name: "MYSQL_ROOT_HOST"
+      value: "%"
+    ports:
+    - containerPort: 3306
+
+  - name: redis
+    image: docker.io/redis:2.8
+    ports:
+    - containerPort: 6379   
+
+  - name: grader
+    image: docker.io/oluwaseyip/grader
+    ports:
+    - containerPort: 58500  
+   
+  - name: lj
+    image: docker.io/oluwaseyip/levy
+    ports:
+    - containerPort: 4000
+    - containerPort: 7000            
+          

@@ -1,0 +1,7 @@
+---
+
+- include_tasks: makeDirectories.yml
+
+- include_tasks: copyConfigFiles.yml
+
+- include_tasks: deployment.yml

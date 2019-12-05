@@ -1,0 +1,9 @@
+---
+
+- name: Creates the linuxjobber dir if not exist
+  file: 
+    path: /linuxjobber
+    state: directory
+    owner: linuxjobber
+    group: linuxjobber
+  become: yes

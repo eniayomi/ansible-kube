@@ -1,0 +1,7 @@
+---
+
+- include_tasks: prerequisites.yml
+
+- include_tasks: setting_up_nodes.yml
+
+- include_tasks: configure_master_node.yml

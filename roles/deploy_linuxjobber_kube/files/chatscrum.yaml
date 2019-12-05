@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: chatscrum
+  labels:
+    app: chatscrum
+  namespace: linuxjobber  
+spec:
+  containers:
+  - name: ljdb
+    image: docker.io/mysql:8
+    env:
+    - name: MYSQL_ROOT_USER
+      value: root  
+    - name: MYSQL_ROOT_PASSWORD
+      value: 8iu7*IU&
+    - name: MYSQL_USER
+      value: linuxjobber
+    - name: MYSQL_PASSWORD
+      value: 8iu7*IU&    
+    - name: MYSQL_DATABASE
+      value: chatscrum
+    - name: "MYSQL_ROOT_HOST"
+      value: "%"
+    ports:
+    - containerPort: 3306 
+
+  - name: redis
+    image: docker.io/redis:2.8
+    ports:
+    - containerPort: 6379
+
+  - name: cs
+    image: docker.io/oluwaseyip/ljlj
+    ports:
+    - containerPort: 5000
+    - containerPort: 5100 
+          

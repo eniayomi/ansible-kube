@@ -1,0 +1,5 @@
+---
+
+- hosts: kubernetes-worker-nodes
+  roles:
+    - deploy_kube_node

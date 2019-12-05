@@ -1,0 +1,16 @@
+[deploy_linuxjobber_app]
+34.215.225.26 ansible_connection=ssh ansible_ssh_user=linuxjobber ansible_ssh_pass=8iu7*IU&
+
+
+[pull_run_redis]
+52.43.19.175 ansible_connection=ssh ansible_ssh_user=linuxjobber ansible_ssh_pass=8iu7*IU&
+
+[deploy_chatscrum_app]
+52.43.19.175 ansible_connection=ssh ansible_ssh_user=linuxjobber ansible_ssh_pass=8iu7*IU&
+
+[pull_run_mysql8]
+52.43.19.175 ansible_connection=ssh ansible_ssh_user=linuxjobber ansible_ssh_pass=8iu7*IU&
+
+#127.0.0.1 ansible_connection=ssh ansible_ssh_user=centos
+
+

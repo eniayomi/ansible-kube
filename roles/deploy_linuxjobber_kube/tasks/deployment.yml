@@ -1,0 +1,30 @@
+---
+
+- include_vars: env_variables
+
+
+- name: Creating the linuxjobber namespace.
+  shell: |
+    kubectl create ns linuxjobber | true
+
+  become: yes  
+
+- name: Creating the services.
+  shell: |
+    cd /linuxjobber
+    kubectl apply -f mysql_svc.yaml
+    kubectl apply -f redis_svc.yam
+    kubectl apply -f grader_svc.yaml
+    kubectl apply -f linuxjobber_svc.yaml
+    kubectl apply -f chatscrum_svc.yaml
+    kubectl apply -f cs_mysql.yaml
+
+  become: yes    
+
+- name: Creating the pods.
+  shell: |
+    cd /linuxjobber
+    kubectl apply -f linuxjobber.yaml
+    kubectl apply -f chatscrum.yaml
+
+  become: yes    

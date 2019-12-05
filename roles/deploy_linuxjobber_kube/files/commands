@@ -1,0 +1,17 @@
+kubectl create ns linuxjobber
+
+kubectl create -f mysql_svc.yaml
+
+kubectl create -f redis_svc.yaml
+
+kubectl create -f grader_svc.yaml
+
+kubectl get svc --all-namespaces
+
+kubectl create -f linuxjobber.yaml
+
+
+
+kubectl exec -it linuxjobber -c lj -n linuxjobber /bin/bash
+
+10.244.1.2

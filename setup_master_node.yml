@@ -1,0 +1,5 @@
+---
+
+- hosts: kubernetes-master-nodes
+  roles:
+    - deploy_kube_master

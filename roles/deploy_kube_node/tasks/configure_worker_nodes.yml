@@ -1,0 +1,14 @@
+---
+
+- include_vars: env_variables
+
+- name: Copying token to worker nodes
+  copy: src=./join_token dest=/home/linuxjobber/join_token
+
+- name: Joining worker nodes with kubernetes master
+  shell: |
+    kubeadm reset -f
+    cat /home/linuxjobber/join_token | tail -2 > out.sh
+    chmod +x out.sh
+    ./out.sh
+  become: yes
