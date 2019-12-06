@@ -13,4 +13,9 @@
 
 #127.0.0.1 ansible_connection=ssh ansible_ssh_user=centos
 
+[kubernetes-master-nodes]
+kubernetes-master ansible_host=54.149.109.207 ansible_connection=ssh ansible_ssh_user=linuxjobber ansible_ssh_pass=8iu7*IU&
+
+[kubernetes-worker-nodes]
+kubernetes-worker ansible_host=54.212.119.94 ansible_connection=ssh ansible_ssh_user=linuxjobber ansible_ssh_pass=8iu7*IU&
 
